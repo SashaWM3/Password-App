@@ -1,0 +1,57 @@
+﻿<Window x:Class="saving_passwords.AppMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:saving_passwords"
+        mc:Ignorable="d"
+        Title="SavePass - Пароли" Height="900" Width="1000" ResizeMode="NoResize" Icon="/logo.png" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Background="#FF8E8E8E">
+    <Grid>
+        <Image Margin="60,40,803,707" Source="/logo.png"/>
+        <TextBlock Text="SavePass" FontSize="50" FontWeight="Black" HorizontalAlignment="Left" Margin="228,70,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding Hashtags}" SelectedItem="{Binding SelectedHashtag}" Margin="51,218,614,0" FontFamily="Microsoft JhengHei" IsSynchronizedWithCurrentItem="True" VerticalAlignment="Top" Height="39" SelectionChanged="ComboBoxHashtags_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5" >
+                        <TextBlock FontSize="18" Text="{Binding}" FontWeight="Bold"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Text="" Name="login" FontSize="25" TextAlignment="Right" HorizontalAlignment="Right" Margin="0,70,78,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="351" FontFamily="Microsoft JhengHei Light"/>
+        <Button Content="Выйти из аккаунта" FontSize="18" HorizontalAlignment="Left" Margin="749,131,0,0" VerticalAlignment="Top" Height="42" Width="176" Click="btnExit" Cursor="Hand"/>
+        <Button Content="+" FontSize="20" HorizontalAlignment="Left" Margin="422,218,0,0" VerticalAlignment="Top" Height="39" Width="39" Cursor="Hand" Click="Button_Click"/>
+        <Label Content="V0.8" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+
+        <Button Content="Редактировать" FontSize="20" HorizontalAlignment="Left" Margin="545,786,0,0" VerticalAlignment="Top" Height="42" Width="168" Click="btnEdit" Cursor="Hand"/>
+        <Button Content="Удалить" FontSize="20" HorizontalAlignment="Left" Margin="749,786,0,0" VerticalAlignment="Top" Height="42" Width="168" Click="btnDelete" Cursor="Hand"/>
+
+        <ListBox ItemsSource="{Binding FilteredInfos}" SelectedItem="{Binding Info_App}" Margin="51,292,539,77" IsSynchronizedWithCurrentItem="True" FontSize="20" FontFamily="Microsoft JhengHei" Grid.Column="0" ScrollViewer.ScrollChanged="ListBox_ScrollChanged" Background="#FF8E8E8E" BorderBrush="#FFDDDDDD">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5" >
+                        <TextBlock FontSize="18" Text="{Binding NameProgram}" FontWeight="Bold"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <StackPanel DataContext="{Binding Info_App}" Margin="670,231,24,568">
+            <TextBlock Text="{Binding NameProgram, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Height="71"/>
+        </StackPanel>
+        <StackPanel DataContext="{Binding Info_App}" Margin="526,344,83,167">
+            <TextBlock Text="Логин" FontSize="20" Foreground="#FFE5E5E5"/>
+            <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" FontSize="20" IsReadOnly="True"/>
+            <TextBlock Text="Пароль" FontSize="20" Foreground="#FFE5E5E5"/>
+            <TextBox Text="{Binding Pass, UpdateSourceTrigger=PropertyChanged}" FontSize="20" IsReadOnly="True"/>
+            <TextBlock Text="Почта" FontSize="20" Foreground="#FFE5E5E5"/>
+            <TextBox Text="{Binding Mail, UpdateSourceTrigger=PropertyChanged}" FontSize="20" IsReadOnly="True"/>
+            <TextBlock Text="Телефон" FontSize="20" Foreground="#FFE5E5E5"/>
+            <TextBox Text="{Binding Tel, UpdateSourceTrigger=PropertyChanged}" FontSize="20" IsReadOnly="True"/>
+            <TextBlock Text="Сайт" FontSize="20" Foreground="#FFE5E5E5"/>
+            <TextBox Text="{Binding Web, UpdateSourceTrigger=PropertyChanged}" FontSize="20" IsReadOnly="True"/>
+        </StackPanel>
+        <Button Content="Обновить лист" HorizontalAlignment="Left" Margin="545,722,0,0" VerticalAlignment="Top" Height="36" Click="Button_Click_1" Width="168" FontSize="20"/>
+        <Button Content="Создать отчёт" HorizontalAlignment="Left" Margin="749,722,0,0" VerticalAlignment="Top" Height="36" Click="Button_Click_2" Width="168" FontSize="20"/>
+    </Grid>
+</Window>

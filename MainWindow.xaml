@@ -1,0 +1,19 @@
+﻿<Window x:Class="saving_passwords.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:saving_passwords"
+        mc:Ignorable="d"
+        Title="Вход в аккаунт" Height="500" Width="500" ResizeMode="NoResize" Icon="/logo.png" WindowStartupLocation="CenterScreen" Background="#FF8E8E8E">
+    <Grid>
+        <Label Content="Вход" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Введите логин" FontSize="20" HorizontalAlignment="Left" Margin="101,137,0,0" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light"/>
+        <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="0,172,0,0" Text="" VerticalAlignment="Top" Width="298" Height="31" FontSize="20" TextWrapping="Wrap" FontFamily="Microsoft JhengHei Light"/>
+        <Label Content="Введите пароль" FontSize="20" HorizontalAlignment="Left" Margin="101,234,0,0" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light"/>
+        <PasswordBox Name="passwordBox" HorizontalAlignment="Center" Margin="0,269,0,0" VerticalAlignment="Top" Width="298" Height="31" FontSize="20"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="101,342,0,0" VerticalAlignment="Top" Height="34" Width="106" Cursor="Hand" Click="BtnGo" IsDefault="True" FontFamily="Microsoft JhengHei Light" FontSize="20"/>
+        <Button Content="Регистрация" HorizontalAlignment="Right" Margin="0,342,101,0" VerticalAlignment="Top" Height="34" Width="163" Cursor="Hand" Click="BtnReg" FontFamily="Microsoft JhengHei Light" FontSize="20"/>
+        <Label Content="V0.8" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

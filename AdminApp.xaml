@@ -1,0 +1,27 @@
+﻿<Window x:Class="saving_passwords.AdminApp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:saving_passwords"
+        mc:Ignorable="d"
+        Title="Окно администратора" Height="450" Width="824" Background="#FF4C4C4C" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="Выйти из аккаунта" FontSize="18" HorizontalAlignment="Left" Margin="23,124,0,0" VerticalAlignment="Top" Height="42" Width="176" Click="btnExit" Cursor="Hand"/>
+        <TextBlock Margin="34,44,636,321" FontSize="20" Name="login" Foreground="#FFDDDDDD" TextWrapping="Wrap"/>
+        <ListBox ItemsSource="{Binding InfosUsers}" SelectedItem="{Binding Admin_App}" Margin="248,24,261,50" IsSynchronizedWithCurrentItem="True" FontSize="14" FontFamily="Microsoft JhengHei" Grid.Column="0" Background="#FF8E8E8E" BorderBrush="#FFDDDDDD" ScrollViewer.ScrollChanged="ListBox_ScrollChanged" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5" >
+                        <TextBlock FontSize="14" Text="{Binding Users}" FontWeight="Bold" />
+                        <TextBlock  />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button  Content="Обновить лист" FontSize="18" HorizontalAlignment="Left" Margin="603,37,0,0" VerticalAlignment="Top" Height="42" Width="176" Click="btnUpdate" Cursor="Hand"/>
+        <Button Content="Удалить аккаунт" FontSize="18" HorizontalAlignment="Left" Margin="603,124,0,0" VerticalAlignment="Top" Height="42" Width="176" Click="btnDelete" Cursor="Hand"/>
+        <Button Content="Обновить пароль" FontSize="18" HorizontalAlignment="Left" Margin="603,311,0,0" VerticalAlignment="Top" Height="42" Width="176" Click="btnPass"/>
+        <TextBox Name="pass" HorizontalAlignment="Left" Margin="603,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" FontSize="20" TextChanged="TextBox_TextChanged"/>
+    </Grid>
+</Window>
